@@ -6,9 +6,21 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
+        <script src="https://kit.fontawesome.com/d5469f0cd1.js" crossorigin="anonymous"></script>
 
         <!-- Fonts -->
 
+        @if (!request()->is('/'))
+            <style>
+                #header_area a {
+                    color: #000
+                }
+
+                #header_area a:hover {
+                    color: #991b1b
+                }
+            </style>
+        @endif
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">

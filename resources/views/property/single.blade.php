@@ -1,7 +1,7 @@
 
 <x-guest-layout>
     {{-- Breadcrumb --}}
-    <div class="shadow-md border-2 border-gray-300 py-2 bg-white mt-28">
+    <div class="single-page-top shadow-md border-2 border-gray-300 py-2 bg-white">
         <div class="container mx-auto">
             <ul class="flex items-center">
                 <li><a class="text-base text-red-800" href="#">Property</a></li>
@@ -53,23 +53,30 @@
             {{-- Left Content --}}
             <div class="w-9/12">
                 <div id="slider" class="">
+                    {{-- <div class="gallery-slider">
+                        <div class="single-gallery-item bg-cover bg-center" style="background-image: url(/img/hero-bg.jpg)"></div>
+                        <div class="single-gallery-item bg-cover bg-center" style="background-image: url(/img/hero-bg.jpg)"></div>
+                        <div class="single-gallery-item bg-cover bg-center" style="background-image: url(/img/hero-bg.jpg)"></div>
+                        <div class="single-gallery-item bg-cover bg-center" style="background-image: url(/img/hero-bg.jpg)"></div>
+                    </div> --}}
+
                     <div class="gallery-slider">
-                        {{-- @foreach($property->gallery as $gallery)
+                        @foreach($property->gallery as $gallery)
                         <div style="background-image: url({{$gallery->name}})" class="single-gallery-item bg-cover bg-center"></div>
-                        @endforeach --}}
+                        @endforeach
                     </div>
 
                     <div class="thumbnail-slider">
-                        {{-- @foreach($property->gallery as $gallery)
+                        @foreach($property->gallery as $gallery)
                         <div style="background-image: url({{$gallery->name}})" class="single-thumbnail-item bg-cover bg-center"></div>
-                        @endforeach --}}
+                        @endforeach
                     </div>
                 </div>
                 {{-- Overview --}}
                 <div class="flex justify-between items-center bg-white p-8 mt-10 shadow-sm">
                     <h4 class="text-lg w-2/12">Overview</h4>
                     <div class="border-l-2 border-gray-300 pl-5 ml-5 w-10/12 text-base">
-                        {{-- <p>{{$property->overview}}</p> --}}
+                        <p>{{$property->overview}}</p>
                     </div>
                 </div>
 
@@ -113,7 +120,7 @@
                                     <div class="flex"><i
                                             class="fa fa-map-marker mr-2 text-red-400 w-5 text-center"></i><span
                                             class="text-sm">Location:</span></div>
-                                    {{-- <span class="ml-2 font-bold">{{$property->location->name}}</span> --}}
+                                    <span class="ml-2 font-bold">{{$property->location->name}}</span>
                                 </li>
                             </ul>
                         </div>

@@ -9,8 +9,9 @@ class HomeController extends Controller
 {
     public function home()
     {
-        $latestProperties = Property::all();
+        $latestProperties = Property::latest()->get()->take(4);
         // echo'<pre>';
+        // dd($latestProperties->gallery()->count());
         // print_r($latestProperties);
         // $data = 'This is moshiul';
         return view ('welcome',[

@@ -20,6 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('/', [HomeController::class,'home'])->name('home');
+Route::get('/properties', [PropertyController::class,'index'])->name('properties');
 Route::get('/property/{id}', [PropertyController::class,'singleProperty'])->name('singleProperty');
 
 Route::get('/dashboard', function () {
