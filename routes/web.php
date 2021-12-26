@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\PropertyController;
 
 /*
@@ -22,6 +23,7 @@ Route::get('/', function () {
 Route::get('/', [HomeController::class,'home'])->name('home');
 Route::get('/properties', [PropertyController::class,'index'])->name('properties');
 Route::get('/property/{id}', [PropertyController::class,'singleProperty'])->name('singleProperty');
+Route::get('/page/{slug}', [PageController::class,'single'])->name('page');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
