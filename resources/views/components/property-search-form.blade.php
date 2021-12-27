@@ -1,12 +1,22 @@
 <form action="{{route('properties')}}" method="GET" class="flex justify-between">
 
-    <div class="flex w-7/12 justify-between items-center">
+    <div class="flex w-9/12 justify-between items-center">
         <div class="flex flex-col mx-3">
             <label for="sale">Buy or Rent</label>
             <select name="sale" id="sale" class="border-0 focus:ring-0">
                 <option value="">Buy or Rent</option>
                 <option {{request('sale')=='1'?'selected="selected"':''}} value="1">Buy</option>
                 <option {{request('sale')=='0'?'selected="selected"':''}} value="0">Rent</option>
+            </select>
+        </div>
+        <div class="py-3 self-center border-gray-500 border"></div>
+        <div class="flex flex-col mx-3">
+            <label for="location">Location</label>
+            <select name="location" id="location" class="border-0 focus:ring-0">
+                <option value="">Location</option>
+                @foreach($locations as $location)
+                    <option {{request('location')==$location->id?'selected="selected"':''}} value="{{$location->id}}">{{$location->name}}</option>
+                @endforeach
             </select>
         </div>
         <div class="py-3 self-center border-gray-500 border"></div>
@@ -33,7 +43,7 @@
         </div>
         <div class="py-3 self-center border-gray-500 border"></div>
         <div class="flex flex-col mx-3">
-            <label for="bedrooms">Price</label>
+            <label for="bedrooms">Bedrooms</label>
             <select name="bedrooms" id="bedrooms" class="border-0 focus:ring-0">
                 <option value="">Bedrooms</option>
                 <option {{request('bedrooms')=='1'?'selected="selected"':''}} value="1">1</option>
@@ -44,8 +54,8 @@
             </select>
         </div>
     </div>
-    <div class="flex justify-between items-center w-5/12 ml-5">
-        <input type="search" placeholder="Try to search for something"
+    <div class="flex justify-between items-center w-3/12 ml-5">
+        <input name="property_name" value="{{request('property_name')}}" type="search" placeholder="Try to search for something"
                class="rounded-lg px-4 py-2 w-full mr-4 focus:border-gray-700 focus:ring-0">
         <button type="submit" class="btn">Search</button>
     </div>
