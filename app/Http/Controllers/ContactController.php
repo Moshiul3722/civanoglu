@@ -20,7 +20,7 @@ class ContactController extends Controller
         $contact->name = $request->name;
         $contact->phone = $request->phone;
         $contact->email = $request->email;
-        $contact->message = $request->message.'\n This message has been sent via'.route('singleProperty',$property_id).'website';
+        $contact->message = $request->message.'\n This message has been sent via'.route('singleProperty',$property_id).' website';
         $contact->save();
 
         return redirect(route('singleProperty',$property_id));
