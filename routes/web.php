@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PropertyController;
@@ -17,15 +18,19 @@ use App\Http\Controllers\ContactController;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', [HomeController::class,'home'])->name('home');
-Route::get('/properties', [PropertyController::class,'index'])->name('properties');
-Route::get('/property/{id}', [PropertyController::class,'singleProperty'])->name('singleProperty');
-Route::get('/page/{slug}', [PageController::class,'single'])->name('page');
-Route::post('/property-inquiry/{id}', [ContactController::class,'propertyInquiry'])->name('property-inquiry');
+Route::group(['prefix' => LaravelLocalization::setLocale()], function()
+{
+    Route::get('/', [HomeController::class,'home'])->name('home');
+    Route::get('/properties', [PropertyController::class,'index'])->name('properties');
+    Route::get('/property/{id}', [PropertyController::class,'singleProperty'])->name('singleProperty');
+    Route::get('/page/{slug}', [PageController::class,'single'])->name('page');
+    Route::post('/property-inquiry/{id}', [ContactController::class,'propertyInquiry'])->name('property-inquiry');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
