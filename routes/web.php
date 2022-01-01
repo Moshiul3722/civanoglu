@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DashboardControllder;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,8 +33,16 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     Route::post('/property-inquiry/{id}', [ContactController::class,'propertyInquiry'])->name('property-inquiry');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+
+// admin routes
+Route::middleware(['auth'])->group(function(){
+    Route::get('/dashboard', [DashboardControllder::class,'index'])->name('dashboard');
+    Route::get('/dashboard/properties', [DashboardControllder::class,'properties'])->name('dashboard-properties');
+    Route::get('/dashboard/add-property', [DashboardControllder::class,'addProperty'])->name('add-property');
+    Route::post('/dashboard/add-property', [DashboardControllder::class,'createProperty'])->name('dashboard-property.store');
+    Route::get('/dashboard/edit-property/{id}', [DashboardControllder::class,'editProperty'])->name('edit-property');
+});
+
+
 
 require __DIR__.'/auth.php';

@@ -13,8 +13,8 @@
         </ul>
     </div>
     <div class="min-w-max flex text-3xl">
-        <a href="">🇺🇸</a>
-        <a href="">🇹🇷</a>
+        <a href="{{LaravelLocalization::getLocalizedURL('en')}}">🇺🇸</a>
+        <a href="{{LaravelLocalization::getLocalizedURL('tr')}}">🇹🇷</a>
     </div>
 
 </div>

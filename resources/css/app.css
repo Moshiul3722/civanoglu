@@ -399,3 +399,44 @@ h6 {
 .home-search label {
     display: none;
 }
+
+.vertical-search-form label {
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-bottom: 5px;
+    display: block;
+    opacity: .5;
+}
+
+.vertical-search-form select {
+    min-width: 100%;
+}
+
+.vertical-search-form > form > div > div {
+    display: block;
+    min-width: 100%;
+    margin-bottom: 15px;
+}
+
+.vertical-search-form > form > div.ml-5 {
+    margin-left: 12px;
+}
+
+.vertical-search-form button {
+    margin-top: 15px;
+    min-width: 100%;
+}
+
+
+.civanoglu-label {
+    @apply uppercase text-sm text-gray-600 mb-2 cursor-pointer block
+}
+
+.civanoglu-input {
+    @apply border border-gray-400 w-full px-4 py-2 block
+}
+
+.required-text {
+    @apply text-red-500;
+    font-family: sans-serif;
+}

@@ -32608,6 +32608,62 @@ h6 {
   display: none;
 }
 
+.vertical-search-form label {
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-bottom: 5px;
+  display: block;
+  opacity: .5;
+}
+
+.vertical-search-form select {
+  min-width: 100%;
+}
+
+.vertical-search-form > form > div > div {
+  display: block;
+  min-width: 100%;
+  margin-bottom: 15px;
+}
+
+.vertical-search-form > form > div.ml-5 {
+  margin-left: 12px;
+}
+
+.vertical-search-form button {
+  margin-top: 15px;
+  min-width: 100%;
+}
+
+.civanoglu-label {
+  margin-bottom: 0.5rem;
+  display: block;
+  cursor: pointer;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-transform: uppercase;
+  --tw-text-opacity: 1;
+  color: rgba(75, 85, 99, var(--tw-text-opacity))
+}
+
+.civanoglu-input {
+  display: block;
+  width: 100%;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgba(156, 163, 175, var(--tw-border-opacity));
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem
+}
+
+.required-text {
+  --tw-text-opacity: 1;
+  color: rgba(239, 68, 68, var(--tw-text-opacity));
+  font-family: sans-serif;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
