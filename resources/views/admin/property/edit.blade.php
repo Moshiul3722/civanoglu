@@ -38,6 +38,10 @@
                         <label class="civanoglu-label" for="featured_image">Featured Image <span class="required-text">*</span></label>
                         <input class="civanoglu-input" type="file" id="featured_image" name="featured_image" required>
 
+                        @if (file_exists(public_path('storage/uploads/' . $property->featured_image)))
+                            <p  class="mt-3"><img style="max-width: 100px" src="/storage/uploads/{{$property->featured_image}}" alt=""></p>
+                        @endif
+                        {{--<p><img src="/uploads/{{$property->featured_image}}" alt=""></p>--}}
                         @error('featured_image')
                         <p class="text-red-500 mt-2 text-sm">{{$message}}</p>
                         @enderror
@@ -50,6 +54,20 @@
                         @error('gallery_images')
                         <p class="text-red-500 mt-2 text-sm">{{$message}}</p>
                         @enderror
+
+                        <div class="flex mt-3">
+                            @foreach($property->gallery as $gallery)
+                                <div class="mr-4 relative" style="min-width: 100px">
+                                    <div class="flex items-center justify-center h-full">
+                                        <img style="max-width: 100px" src="/storage/uploads/{{$gallery->name}}" alt="">
+                                    </div>
+
+                                    <form method="post" action="{{route('delete-media',$gallery->id)}}" onsubmit="return confirm('Do you really want to delete the media file?')" class="absolute right-0 top-0">@csrf
+                                        <button style="font-size:8px" type="submit" class="text-white bg-red-600 px-3 py-1">Delete</button>
+                                    </form>
+                                </div>
+                                @endforeach
+                        </div>
                     </div>
 
                     <div class="flex -mx-4 mb-6">
